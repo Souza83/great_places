@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:great_places/models/place.dart';
 
 class GreatPlaces with ChangeNotifier {
-  List<Place> _items = [];
+  final List<Place> _items = [];
 
   // Importante no método get retornar clone por segurança
   List<Place> get items {
