@@ -6,7 +6,7 @@ class PlaceLocation {
   final double? longitude;
   final String? address;
 
-  PlaceLocation({
+  const PlaceLocation({
     // importar 'package:flutter/foundation.dart';
     @required this.latitude,
     @required this.longitude,
