@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:great_places/screens/map_screen.dart';
 import 'package:great_places/utils/location_url.dart';
 import 'package:location/location.dart';
@@ -15,7 +16,7 @@ class _LocationInputState extends State<LocationInput> {
 
   Future<void> _getCurrentUserLocation() async {
     final locData = await Location().getLocation();
-    
+
     final staticMapImageUrl = LocationUtil.generateLocationPreviewImage(
       latitude: locData.latitude,
       longitude: locData.longitude,
@@ -27,13 +28,17 @@ class _LocationInputState extends State<LocationInput> {
   }
 
   Future<void> _selectOnMap() async {
-    final selectedLocation = await Navigator.of(context).push(
+    final LatLng selectedPosition = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => const MapScreen(),
       ),
     );
 
-    if(selectedLocation == null) return;
+    // ignore: unnecessary_null_comparison
+    if (selectedPosition == null) return;
+
+    // ignore: avoid_print
+    print(selectedPosition.latitude);
   }
 
   @override
